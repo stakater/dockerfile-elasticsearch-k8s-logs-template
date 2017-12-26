@@ -1,0 +1,40 @@
+{
+  "template" : "log-*",
+  "settings" : {
+    "index.refresh_interval" : "5s"
+  },
+  "mappings" : {
+    "doc" : {
+       "dynamic_templates" : [ {
+         "message_field" : {
+           "match" : "message",
+           "match_mapping_type" : "string",
+           "mapping" : {
+             "type" : "string", "index" : "true", "omit_norms" : true
+           }
+         }
+       }, {
+         "string_fields" : {
+           "match" : "*",
+           "match_mapping_type" : "string",
+           "mapping" : {
+             "type" : "string", "index" : "true", "omit_norms" : true,
+               "fields" : {
+                 "raw" : {"type": "string", "index" : "false", "ignore_above" : 8192}
+               }
+           }
+         }
+       } ],
+       "properties" : {
+         "@version": { "type": "keyword", "index": "false" },
+         "geoip"  : {
+           "type" : "object",
+             "dynamic": true,
+             "properties" : {
+               "location" : { "type" : "geo_point" }
+             }
+         }
+       }
+    }
+  }
+}
