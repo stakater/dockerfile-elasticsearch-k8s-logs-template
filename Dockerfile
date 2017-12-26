@@ -18,5 +18,6 @@ RUN chmod +x /es-template/scripts/*.sh && \
 USER es-template
 
 # Override base image's entrypoint and cmd
+# As the container is supposed to run once and terminate
 CMD [ "/bin/bash", "-c" ]
 ENTRYPOINT [ "/es-template/scripts/put-template.sh" ]
