@@ -8,7 +8,7 @@ TEMPLATE_NAME=${TEMPLATE_NAME:-"logs"}
 
 # Wait for ES to start up properly
 until $(curl -s -f -o /dev/null --connect-timeout 1 -m 1 --head ${ES_URL}) ; do
-    sleep 0.5;
+    sleep 0.1;
     retries=$(($retries-1))
     
     if [[ ${retries} -eq 0 ]]; 
