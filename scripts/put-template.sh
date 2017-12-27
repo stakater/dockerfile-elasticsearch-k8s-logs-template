@@ -24,4 +24,4 @@ if ! [ $(curl -s -f -o /dev/null ${ES_URL}/_template/${TEMPLATE_NAME}) ]; then
 fi
 
 # Sleep infinity so that kubernetes can mark this as healthy
-sleep infinity;
+tail -f /dev/null
