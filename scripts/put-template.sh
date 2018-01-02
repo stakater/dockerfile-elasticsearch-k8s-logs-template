@@ -22,3 +22,6 @@ done
 if ! [ $(curl -s -f -o /dev/null ${ES_URL}/_template/${TEMPLATE_NAME}) ]; then
     curl -XPUT -d@/es-template/config/${TEMPLATE_FILE_NAME} -H 'Content-Type: application/json' ${ES_URL}/_template/${TEMPLATE_NAME}?pretty
 fi
+
+# Sleep infinity so that kubernetes can mark this as healthy
+tail -f /dev/null
