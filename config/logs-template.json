@@ -8,19 +8,19 @@
        "dynamic_templates" : [ {
          "message_field" : {
            "match" : "message",
-           "match_mapping_type" : "string",
+           "match_mapping_type" : "text",
            "mapping" : {
-             "type" : "string", "index" : "true", "omit_norms" : true
+             "type" : "text", "index" : "true", "omit_norms" : true
            }
          }
        }, {
          "string_fields" : {
            "match" : "*",
-           "match_mapping_type" : "string",
+           "match_mapping_type" : "text",
            "mapping" : {
-             "type" : "string", "index" : "true", "omit_norms" : true,
+             "type" : "text", "index" : "true", "omit_norms" : true,
                "fields" : {
-                 "raw" : {"type": "string", "index" : "false", "ignore_above" : 8192}
+                 "raw" : {"type": "text", "index" : "false", "ignore_above" : 8192}
                }
            }
          }
