@@ -8,7 +8,7 @@
        "dynamic_templates" : [ {
          "message_field" : {
            "match" : "message",
-           "match_mapping_type" : "text",
+           "match_mapping_type" : "string",
            "mapping" : {
              "type" : "text", "index" : "true", "omit_norms" : true
            }
@@ -16,7 +16,7 @@
        }, {
          "string_fields" : {
            "match" : "*",
-           "match_mapping_type" : "text",
+           "match_mapping_type" : "string",
            "mapping" : {
              "type" : "text", "index" : "true", "omit_norms" : true,
                "fields" : {
